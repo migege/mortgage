@@ -4,9 +4,6 @@ import os
 import sys
 import argparse
 
-reload(sys)
-sys.setdefaultencoding('utf8')
-
 
 def getopts():
     parser = argparse.ArgumentParser(description='Mortgage')
@@ -31,7 +28,7 @@ def main():
     monthly_income_more = round(monthly_repayment * 2.1, 2)
     annual_income_more = round(monthly_income_more * 12.0, 2)
 
-    print '''** 房贷计算器 **
+    print('''** 房贷计算器 **
 贷款金额    {principal}万
 年利率      {annual_interest_rate}%
 利率浮动    {floating}倍
@@ -50,7 +47,18 @@ def main():
 月收入      {monthly_income_more}元
 年收入      {annual_income_more}元
 '''.format(
-        principal=opts.principal, annual_interest_rate=opts.annual_interest_rate, floating=opts.floating, years=opts.years, monthly_repayment=monthly_repayment, total_repayment=total_repayment, total_interest=total_interest, monthly_income=monthly_income, annual_income=annual_income, monthly_income_more=monthly_income_more, annual_income_more=annual_income_more)
+        principal=opts.principal,
+        annual_interest_rate=opts.annual_interest_rate,
+        floating=opts.floating,
+        years=opts.years,
+        monthly_repayment=monthly_repayment,
+        total_repayment=total_repayment,
+        total_interest=total_interest,
+        monthly_income=monthly_income,
+        annual_income=annual_income,
+        monthly_income_more=monthly_income_more,
+        annual_income_more=annual_income_more,
+    ))
 
 
 if __name__ == '__main__':
